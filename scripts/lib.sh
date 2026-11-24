@@ -7,8 +7,18 @@ set -euo pipefail
 # ---------------------------------------------------------------- paths
 WG_DIR=${WG_DIR:-/etc/wireguard}
 AWG_DIR=${AWG_DIR:-/etc/amnezia/amneziawg}
-KEY_DIR=${KEY_DIR:-$HOME/.wg-keys}
-OUT_DIR=${OUT_DIR:-$HOME/wg-clients}
+
+# Under sudo, $HOME is root's. Resolve the INVOKING user's home instead, or an
+# install under /home/you becomes invisible the moment a script runs as root.
+if [ -n "${SUDO_USER:-}" ] && [ "$SUDO_USER" != "root" ]; then
+  _INVOKER_HOME=$(getent passwd "$SUDO_USER" | cut -d: -f6)
+  _INVOKER_HOME=${_INVOKER_HOME:-$HOME}
+else
+  _INVOKER_HOME=$HOME
+fi
+
+KEY_DIR=${KEY_DIR:-$_INVOKER_HOME/.wg-keys}
+OUT_DIR=${OUT_DIR:-$_INVOKER_HOME/wg-clients}
 STATE_DIR=${STATE_DIR:-/var/lib/vpn-stack}
 
 WG_IFACE=${WG_IFACE:-wg0}

@@ -70,6 +70,9 @@ first principles, no third party in the path.
 - [x] IPv6 leak closed on both transports
 - [x] SSH + sysctl hardening, fail2ban, unattended upgrades
 - [x] Per-device keys, labelled QR provisioning, rotation, revocation
+- [x] `test-device.sh` — builds the device's own tunnel in an isolated network
+      namespace and passes real traffic through it, so a config is proven before
+      anyone scans it (catches registered-but-not-forwarding, which `wg show` hides)
 - [x] Rollback-safe firewall changes (rules backed up before any edit)
 
 **Not built**

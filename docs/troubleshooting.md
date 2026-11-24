@@ -79,7 +79,10 @@ An **appended** ACCEPT rule lands *after* that DROP and never runs.
 iptables -I FORWARD 1 -i wg0 -j ACCEPT      # -I ... 1, never -A
 ```
 
-`wg show` looks healthy in this state, which is what makes it confusing.
+`wg show` looks healthy in this state, which is what makes it confusing. This is exactly
+the failure `test-device.sh` exists to catch — it builds the client tunnel in a network
+namespace and passes real traffic through it, so "registered" and "working" stop being the
+same claim.
 
 ## The port is open internally but unreachable from outside
 
