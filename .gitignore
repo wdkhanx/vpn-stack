@@ -1,0 +1,48 @@
+# ===================================================================
+#  NEVER COMMIT SECRETS. This repo is public.
+# ===================================================================
+# Anything that identifies a key, a credential, or the server dies here.
+
+# --- WireGuard / AmneziaWG keys and configs ---
+*.key
+*.pub
+*.psk
+wg0.conf
+wg1.conf
+awg0.conf
+awg1.conf
+!config/*.example
+
+# --- generated client bundles ---
+clients/
+wg-clients/
+*.conf
+!config/*.example
+
+# --- .env and env fragments ---
+.env
+.env.*
+!.env.example
+
+# --- generated QR codes (contain private keys) ---
+*.png
+!docs/diagrams/*.png
+
+# --- rendered outputs ---
+out/
+build/
+dist/
+*.rendered
+
+# --- local scratch / backups of live state ---
+*.bak
+*.rules
+backup/
+backups/
+
+# --- editor / OS noise ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
