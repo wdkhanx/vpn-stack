@@ -13,6 +13,11 @@ first principles, no third party in the path.
 
 ## Architecture
 
+![vpn-stack architecture](docs/diagrams/architecture.png)
+
+<details>
+<summary>Text version (plain terminals / screen readers)</summary>
+
 ```
                               ┌─────────────────────────────┐
    iPhone ────┐               │        ENTRY  VPS            │
@@ -35,6 +40,8 @@ first principles, no third party in the path.
                                              │
                                         the internet
 ```
+
+</details>
 
 ### Design decisions
 
@@ -134,6 +141,13 @@ sudo ./scripts/status.sh
 - **No global peering.** You get your VPS provider's network path, not a
   purpose-built backbone.
 - **You are the operator.** No support desk. A misconfiguration locks you out.
+
+## Docs
+
+- **[Verification and benchmarks](docs/benchmarks.md)** — measured numbers, the method behind
+  each, and an explicit list of what was *not* measured
+- **[Troubleshooting](docs/troubleshooting.md)** — the failures that cost real time and all
+  present as something other than their cause
 
 ## License
 
