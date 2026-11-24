@@ -73,7 +73,7 @@ text(72, 108, "CLIENTS", font=f_h, fill=BLUE)
 cw = 250
 for i, (name, sub, col) in enumerate([
         ("iPhone · WireGuard", "port 51820 · full tunnel", BLUE),
-        ("iPhone · AmneziaWG", "port 41777 · obfuscated", PURPLE),
+        ("iPhone · AmneziaWG", "random UDP port · obfuscated", PURPLE),
         ("iPhone · split tunnel", "DNS + ads only", GREEN),
         ("Mac · WireGuard", "full tunnel", BLUE)]):
     x = 72 + i * (cw + 14)

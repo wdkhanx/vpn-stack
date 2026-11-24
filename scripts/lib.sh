@@ -22,7 +22,11 @@ AWG_SUBNET4=${AWG_SUBNET4:-10.77.77.0/24}
 AWG_SUBNET6=${AWG_SUBNET6:-fd77:77:77::/64}
 
 WG_PORT=${WG_PORT:-51820}
-AWG_PORT=${AWG_PORT:-41777}
+
+# AmneziaWG should listen on a port UNIQUE TO EACH DEPLOYMENT. A value that appears in a
+# public repo is a fingerprint: anyone can scan for it. The default below is a placeholder,
+# not a recommendation - choose your own, or set AWG_PORT in the environment.
+AWG_PORT=${AWG_PORT:-51833}
 
 DRY_RUN=${DRY_RUN:-0}
 

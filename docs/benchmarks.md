@@ -28,16 +28,22 @@ Observed: all four return the server's public addresses. Pass.
 awg show awg0 | grep -E 'jc|jmin|jmax|s1|s2'
 ```
 
-Observed:
+**The values are redacted here deliberately.** Each deployment generates its own, and
+publishing them would hand a blocker part of the exact fingerprint this project exists to
+avoid — the junk-packet count and sizes are the easiest of the parameters to match on.
+Publish the *shape*, not the values:
 
 ```
-jc 7 · jmin 59 · jmax 86 · s1 132 · s2 150
+jc <n> · jmin <n> · jmax <n> · s1 <n> · s2 <n>
 ```
+
+`backup.sh --no-secrets` redacts these same fields for the same reason.
 
 Plain WireGuard sends a handshake of a fixed 148 bytes with a message-type byte of
 `1`, and every data packet carries a type in 1–4. One DPI rule matches that. AmneziaWG
 draws those values from ranges unique to the deployment, so **there is no universal rule
-to write** — two installations do not look alike.
+to write** — two installations do not look alike. That property only holds while the
+values stay private.
 
 ## Client-side proof
 
